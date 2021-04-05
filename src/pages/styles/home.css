@@ -1,0 +1,47 @@
+.home {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	min-height: 70vh;
+}
+
+.usersTable {
+	width: 70%;
+}
+
+.users__body {
+	width: 100%;
+}
+
+.users__header,
+.users__item {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	place-items: center;
+	width: 100%;
+	font-size: 1.4rem;
+}
+
+.users__header {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border: 2px solid mediumpurple;
+}
+
+.users__header h2,
+.users__body h2 {
+	text-align: center;
+	width: 100%;
+	padding: 10px 0;
+}
+
+.users__body {
+	border-left: 2px solid transparent;
+	border-right: 2px solid transparent;
+}
+
+.middle {
+	border-left: 2px solid mediumpurple;
+	border-right: 2px solid mediumpurple;
+}
