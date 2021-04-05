@@ -1,6 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Users = () => {
+const Users = props => {
+	console.log(props);
+
+	//Render users from the reducer state
+
 	return (
 		<div className='usersTable'>
 			<div className='users__header'>
@@ -9,24 +15,21 @@ const Users = () => {
 				<h2>WebSite</h2>
 			</div>
 			<div className='users__body'>
-				<div className='users__item'>
-					<h2>USER NAME</h2>
-					<h2 className='middle'>USER EMAIL</h2>
-					<h2>USER WEBSITE</h2>
-				</div>
-				<div className='users__item'>
-					<h2>USER NAME</h2>
-					<h2 className='middle'>USER EMAIL</h2>
-					<h2>USER WEBSITE</h2>
-				</div>
-				<div className='users__item'>
-					<h2>USER NAME</h2>
-					<h2 className='middle'>USER EMAIL</h2>
-					<h2>USER WEBSITE</h2>
-				</div>
+				{props.users.map((user, key) => (
+					<div className='users__item'>
+						<h3>{user.username}</h3>
+						<h3>{user.email}</h3>
+						<h3>{user.website}</h3>
+						<Link to={`/posts/${key}`} className='user--icon'>
+							<i class='fas fa-eye fa-lg'></i>
+						</Link>
+					</div>
+				))}
 			</div>
 		</div>
 	);
 };
 
-export default Users;
+const mapStateToProps = reducers => reducers.usersReducer;
+
+export default connect(mapStateToProps)(Users);

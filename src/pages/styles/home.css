@@ -3,7 +3,7 @@
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	min-height: 70vh;
+	min-height: 85vh;
 }
 
 .usersTable {
@@ -17,7 +17,7 @@
 .users__header,
 .users__item {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr) 50px;
 	place-items: center;
 	width: 100%;
 	font-size: 1.4rem;
@@ -30,18 +30,18 @@
 }
 
 .users__header h2,
-.users__body h2 {
+.users__body h3 {
 	text-align: center;
 	width: 100%;
 	padding: 10px 0;
 }
 
-.users__body {
-	border-left: 2px solid transparent;
-	border-right: 2px solid transparent;
-}
-
 .middle {
 	border-left: 2px solid mediumpurple;
 	border-right: 2px solid mediumpurple;
+}
+
+.user--icon {
+	color: mediumvioletred;
+	align-self: center;
 }

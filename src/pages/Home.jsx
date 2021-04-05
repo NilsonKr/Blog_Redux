@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import * as usersActions from '../actions/usersActions';
 
 import Users from '../components/Users';
 
 import './styles/home.css';
 
-const Home = () => {
-	return (
-		<div className='home'>
-			<Users />
-		</div>
-	);
+const Home = props => {
+	useEffect(() => {
+		props.getAll();
+	}, []);
+
+	return <div className='home'>{props.users.length && <Users />}</div>;
 };
 
-export default Home;
+const mapStateToProps = reducers => reducers.usersReducer;
+
+export default connect(mapStateToProps, usersActions)(Home);
