@@ -1,4 +1,4 @@
-# Fetching And information management of a Blog using Redux
+# Fetching And information management of a blog implementing Redux
 
 ## Getting Started with Create React App
 
