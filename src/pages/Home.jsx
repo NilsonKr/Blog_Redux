@@ -16,6 +16,7 @@ const Home = props => {
 		}
 	}, []);
 
+	//Handling Asynchronus Stage
 	if (props.loading) {
 		return (
 			<div className='home'>
