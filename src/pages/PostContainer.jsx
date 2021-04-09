@@ -39,10 +39,12 @@ const PostContainer = props => {
 
 	return (
 		<div className='postPage__container'>
-			<div className='post--userTitle'>
-				<h2>
-					<span>Post By</span> {userName}
-				</h2>
+			<div className='post--userTitle__container'>
+				<div className='post--userTitle'>
+					<h2>
+						<span>Post By</span> {userName}
+					</h2>
+				</div>
 			</div>
 			{!props.posts.length && (
 				<React.Fragment>

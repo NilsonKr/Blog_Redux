@@ -6,6 +6,8 @@
 
 :root {
 	--main-color: mediumvioletred;
+	--title-font: 'Pacifico', cursive;
+	--bg-color: white;
 }
 
 body {
