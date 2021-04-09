@@ -1,49 +1,54 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import * as postsActions from '../actions/postsActions';
-import * as usersActions from '../actions/usersActions';
+
+import Loader from '../components/Loader';
+import Error from '../components/Error';
+import PostBody from '../components/PostBody';
 
 import './styles/post.css';
-
-const { getAll: getAllPosts } = postsActions;
-const { getAll: getAllUsers } = usersActions;
 
 const PostContainer = props => {
 	console.log(props);
 	const {
 		match: {
-			params: { userKey },
+			params: { postId, userName },
 		},
-		postsReducer: { posts },
-		usersReducer: { users },
 	} = props;
 
-	//Fetching data in case
-	useEffect(async () => {
-		if (!users.length) {
-			await props.getAllUsers();
-		}
-
-		if (!posts.length) {
-			props.getAllPosts(userKey);
-		}
+	useEffect(() => {
+		props.getById(postId);
 	}, []);
-	//Asynchronus Scene
+
+	//Asynchronus Stage
+	if (props.error) {
+		return (
+			<div className='mainContainer'>
+				<Error message={props.error} />
+			</div>
+		);
+	}
+
+	if (props.loading) {
+		return (
+			<div className='mainContainer'>
+				<Loader />
+			</div>
+		);
+	}
 
 	return (
-		<div>
-			<h1>{`You are on the post section`}</h1>
+		<div className='postPage__container'>
+			<div className='post--userTitle'>
+				<h2>
+					<span>Post By</span> {userName}
+				</h2>
+			</div>
+			<PostBody />
 		</div>
 	);
 };
 
-const mapStateToProps = ({ postsReducer, usersReducer }) => ({
-	usersReducer,
-	postsReducer,
-});
-const mapDispatchToProps = {
-	getAllPosts,
-	getAllUsers,
-};
+const mapStateToProps = ({ postsReducer }) => postsReducer;
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostContainer);
+export default connect(mapStateToProps, postsActions)(PostContainer);

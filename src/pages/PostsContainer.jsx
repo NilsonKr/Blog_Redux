@@ -27,9 +27,8 @@ const PostsContainer = props => {
 		if (!users.length) {
 			await props.getAllUsers();
 		}
-		if (!posts.length) {
-			props.getAllPosts(userKey);
-		}
+
+		props.getAllPosts(userKey);
 	}, []);
 
 	//Asynchronus Handling

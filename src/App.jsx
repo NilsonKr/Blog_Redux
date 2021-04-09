@@ -13,7 +13,7 @@ function App() {
 				<Switch>
 					<Route exact path='/' component={Home} />
 					<Route exact path='/posts/:userKey' component={Posts} />
-					<Route exact path='/posts/:userKey/:postKey' component={Post} />
+					<Route exact path='/post/:userName/:postId/' component={Post} />
 				</Switch>
 			</Layout>
 		</BrowserRouter>
