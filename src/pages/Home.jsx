@@ -19,7 +19,7 @@ const Home = props => {
 	//Handling Asynchronus Stage
 	if (props.loading) {
 		return (
-			<div className='home'>
+			<div className='mainContainer'>
 				<Loader />
 			</div>
 		);
@@ -27,13 +27,13 @@ const Home = props => {
 
 	if (props.error) {
 		return (
-			<div className='home'>
+			<div className='mainContainer'>
 				<Error message={props.error} />
 			</div>
 		);
 	}
 
-	return <div className='home'>{props.users.length && <Users />}</div>;
+	return <div className='mainContainer'>{props.users.length && <Users />}</div>;
 };
 
 const mapStateToProps = reducers => reducers.usersReducer;
