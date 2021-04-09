@@ -5,11 +5,11 @@ import * as postsActions from '../actions/postsActions';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
 import PostBody from '../components/PostBody';
+import PostComments from '../components/PostComments';
 
 import './styles/post.css';
 
 const PostContainer = props => {
-	console.log(props);
 	const {
 		match: {
 			params: { postId, userName },
@@ -29,7 +29,7 @@ const PostContainer = props => {
 		);
 	}
 
-	if (props.loading) {
+	if (props.loading || props.posts.length === 0) {
 		return (
 			<div className='mainContainer'>
 				<Loader />
@@ -44,7 +44,12 @@ const PostContainer = props => {
 					<span>Post By</span> {userName}
 				</h2>
 			</div>
-			<PostBody />
+			{!props.posts.length && (
+				<React.Fragment>
+					<PostBody />
+					<PostComments />
+				</React.Fragment>
+			)}
 		</div>
 	);
 };

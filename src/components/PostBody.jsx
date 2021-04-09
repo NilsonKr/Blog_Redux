@@ -1,11 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const PostBody = () => {
+const PostBody = props => {
+	const { posts: post } = props;
+
 	return (
 		<div className='post__body'>
-			<h1>Hey Im The Post Body</h1>
+			<h1>{post.title}</h1>
+			<div className='post__body--description'>
+				<p>{post.body}</p>
+			</div>
 		</div>
 	);
 };
 
-export default PostBody;
+const mapStateToProps = ({ postsReducer }) => postsReducer;
+
+export default connect(mapStateToProps)(PostBody);
