@@ -27,8 +27,9 @@ const PostsContainer = props => {
 		if (!users.length) {
 			await props.getAllUsers();
 		}
-
-		props.getAllPosts(userKey);
+		if (!posts.length) {
+			props.getAllPosts(userKey);
+		}
 	}, []);
 
 	//Asynchronus Handling
@@ -54,7 +55,7 @@ const PostsContainer = props => {
 	return (
 		<div className='posts'>
 			{users.length && <PostsInfo pickedUser={pickedUser} />}
-			{posts.length && <PostsList />}
+			{posts.length && <PostsList userKey={userKey} pickedUser={pickedUser} />}
 		</div>
 	);
 };
