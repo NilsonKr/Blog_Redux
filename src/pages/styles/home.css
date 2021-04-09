@@ -7,7 +7,23 @@
 }
 
 .usersTable {
-	width: 70%;
+	width: clamp(700px, 100%, 1150px);
+	overflow-x: scroll;
+}
+.usersTable::-webkit-scrollbar {
+	height: 5px;
+}
+
+.usersTable::-webkit-scrollbar-track {
+	background-color: none;
+}
+.usersTable::-webkit-scrollbar-thumb {
+	border-radius: 30px;
+	background-color: rgba(0, 0, 0, 0.185);
+}
+
+.usersTable::-webkit-scrollbar-thumb:active {
+	background-color: rgba(0, 0, 0, 0.507);
 }
 
 .users__body {
@@ -17,13 +33,14 @@
 .users__header,
 .users__item {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr) 50px;
+	grid-template-columns: repeat(3, 350px) 50px;
 	place-items: center;
 	width: 100%;
 	font-size: 1.4rem;
 }
 
 .users__header {
+	width: fit-content;
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
 	border: 2px solid mediumpurple;
