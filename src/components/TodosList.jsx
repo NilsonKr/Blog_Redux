@@ -7,7 +7,10 @@ const todosList = props => {
 	return (
 		<div className='todos__list'>
 			{props.users.map(user => (
-				<TodoCard userName={user.username} userId={user.id} />
+				<div className='todo__card' key={user.id}>
+					<h2>{user.username}</h2>
+					<TodoCard userId={user.id} />
+				</div>
 			))}
 		</div>
 	);

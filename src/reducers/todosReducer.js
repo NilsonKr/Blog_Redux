@@ -14,7 +14,7 @@ export default (state = INITIAL_STATE, action) => {
 		case TODOS_LOADING:
 			return { ...state, loading: true, error: null };
 			break;
-		case TODOS_LOADING:
+		case TODOS_ERROR:
 			return { ...state, loading: false, error: action.payload };
 			break;
 		default:

@@ -19,6 +19,7 @@ export const getAll = () => async dispatch => {
 				(todos[todo.userId] = {
 					//todos by user id
 					...todos[todo.userId],
+					isOpen: false,
 
 					[todo.id]: {
 						//todos by id in their respective user id
