@@ -97,7 +97,7 @@
 
 @media screen and (min-width: 1024px) {
 	.post--userTitle__container {
-		width: 50%;
+		width: 40%;
 	}
 	.post__body {
 		width: 70%;
