@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as todosActions from '../actions/todosActions';
 
 import editIcon from '../Assets/edit .svg';
 import deleteIcon from '../Assets/delete.svg';
@@ -9,6 +10,7 @@ const todoCard = props => {
 	const userTodos = props.todos[props.userId];
 	const userTodosKey = Object.keys(userTodos);
 
+	//return if is not open
 	if (!props.todos[props.userId].isOpen) return null;
 
 	return (
@@ -20,7 +22,13 @@ const todoCard = props => {
 						<div className='todo__information'>
 							<div className='todo--info'>
 								<label className='todo--input'>
-									<input type='checkbox' defaultChecked={userTodos[todoKey].completed} />
+									<input
+										type='checkbox'
+										defaultChecked={userTodos[todoKey].completed}
+										onClick={() =>
+											props.setCompleted(props.userId, userTodos[todoKey].id)
+										}
+									/>
 									<span className='todo--checked'></span>
 								</label>
 								<em>{userTodos[todoKey].title}</em>
@@ -39,4 +47,4 @@ const todoCard = props => {
 
 const mapStateToProps = reducers => reducers.todosReducer;
 
-export default connect(mapStateToProps)(todoCard);
+export default connect(mapStateToProps, todosActions)(todoCard);

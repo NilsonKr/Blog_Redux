@@ -45,6 +45,7 @@ export const openClose = userId => (dispatch, getState) => {
 
 	const newUser = { ...todos };
 
+	//Inmutabilitie
 	newUser[userId] = {
 		...newUser[userId],
 		isOpen: !todos[userId].isOpen,
@@ -53,5 +54,23 @@ export const openClose = userId => (dispatch, getState) => {
 	dispatch({
 		type: TODOS_FETCH,
 		payload: newUser,
+	});
+};
+
+export const setCompleted = (userId, taskId) => (dispatch, getState) => {
+	const { todos } = getState().todosReducer;
+
+	const todoPicked = todos[userId][taskId];
+
+	//Inmutabilitie
+	const newTodos = { ...todos };
+	newTodos[userId] = { ...newTodos[userId] };
+	newTodos[userId][taskId] = { ...todoPicked, completed: !todoPicked.completed };
+
+	console.log(newTodos);
+
+	dispatch({
+		type: TODOS_FETCH,
+		payload: newTodos,
 	});
 };
