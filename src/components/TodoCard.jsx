@@ -9,6 +9,8 @@ const todoCard = props => {
 	const userTodos = props.todos[props.userId];
 	const userTodosKey = Object.keys(userTodos);
 
+	if (!props.todos[props.userId].isOpen) return null;
+
 	return (
 		<div className='todo__list'>
 			{userTodosKey.map(todoKey => (

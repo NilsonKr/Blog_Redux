@@ -39,3 +39,19 @@ export const getAll = () => async dispatch => {
 		});
 	}
 };
+
+export const openClose = userId => (dispatch, getState) => {
+	const { todos } = getState().todosReducer;
+
+	const newUser = { ...todos };
+
+	newUser[userId] = {
+		...newUser[userId],
+		isOpen: !todos[userId].isOpen,
+	};
+
+	dispatch({
+		type: TODOS_FETCH,
+		payload: newUser,
+	});
+};
