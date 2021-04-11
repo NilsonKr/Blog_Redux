@@ -7,11 +7,12 @@ import TodosList from '../components/TodosList';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
 
+import './styles/todos.css';
+
 const { getAll: getAllTodos } = todosActions;
 const { getAll: getAllUsers } = usersActions;
 
 const TodosContainer = props => {
-	console.log(props);
 	//Validate if there are todos
 	const todosUserKey = Object.keys(props.todosReducer.todos);
 
@@ -42,12 +43,7 @@ const TodosContainer = props => {
 		);
 	}
 
-	return (
-		<div>
-			<h1>You Are on the todos section</h1>
-			{todosUserKey.length && <TodosList />}
-		</div>
-	);
+	return <div className='todos__container'>{todosUserKey.length && <TodosList />}</div>;
 };
 
 const mapStateToProps = ({ todosReducer, usersReducer }) => ({

@@ -1,0 +1,127 @@
+.todos__container {
+	width: 90%;
+	margin: 40px auto 0;
+}
+
+.todo__card {
+	margin: 30px 0;
+}
+.todo__info__container {
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid var(--main-color);
+	padding: 5px;
+}
+
+.todo--user {
+	font-size: 1.5rem;
+	opacity: 0.8;
+}
+.todo--icon {
+	width: 30px;
+	height: 30px;
+}
+
+.todo__list {
+	margin-top: 20px;
+}
+
+.todo--info {
+	display: flex;
+	align-items: center;
+}
+
+.todo--input {
+	position: relative;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 15px;
+}
+
+.todo--input input {
+	width: 0;
+	padding: 0;
+	opacity: 0;
+}
+.todo--checked {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background: #eee;
+}
+
+.todo--input:hover .todo--checked {
+	background: #ccc;
+}
+
+.todo--input input:checked ~ .todo--checked {
+	background: var(--main-color);
+}
+
+.todo--input input:checked ~ .todo--checked::after {
+	content: '✔';
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%);
+	color: white;
+}
+
+.todo--info em {
+	font-weight: bold;
+	font-size: 1.1rem;
+}
+
+.todo__buttons {
+	margin: 10px 0 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.todo--button {
+	width: 30px;
+	margin: 0 10px;
+}
+
+@media screen and (min-width: 768px) {
+	.todo__information {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.todos__container {
+		width: 80%;
+	}
+
+	.todo--icon {
+		width: 45px;
+		height: 45px;
+	}
+
+	.todo--user {
+		font-size: 2.2rem;
+	}
+
+	.todo--input {
+		width: 25px;
+		height: 25px;
+	}
+
+	.todo--button {
+		width: 40px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.todos__container {
+		width: 50%;
+	}
+}
