@@ -7,11 +7,12 @@ import deleteIcon from '../Assets/delete.svg';
 
 const todoCard = props => {
 	//Get Todos of the user by his id
-	const userTodos = props.todos[props.userId];
+	const { userId } = props;
+	const userTodos = props.todos[userId];
 	const userTodosKey = Object.keys(userTodos);
 
 	//return if is not open
-	if (!props.todos[props.userId].isOpen) return null;
+	if (!props.todos[userId].isOpen) return null;
 
 	return (
 		<div className='todo__list'>
@@ -25,9 +26,7 @@ const todoCard = props => {
 									<input
 										type='checkbox'
 										defaultChecked={userTodos[todoKey].completed}
-										onClick={() =>
-											props.setCompleted(props.userId, userTodos[todoKey].id)
-										}
+										onClick={() => props.setCompleted(userId, userTodos[todoKey].id)}
 									/>
 									<span className='todo--checked'></span>
 								</label>

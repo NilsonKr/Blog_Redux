@@ -1,6 +1,12 @@
+.todos {
+	position: relative;
+	width: 100%;
+}
+
 .todos__container {
 	width: 90%;
-	margin: 40px auto 0;
+	margin: 0 auto 0;
+	padding: 80px 0 0;
 }
 
 .todo__card {

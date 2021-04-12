@@ -4,6 +4,7 @@ import * as todosActions from '../actions/todosActions';
 import * as usersActions from '../actions/usersActions';
 
 import TodosList from '../components/TodosList';
+import AddToDo from '../components/AddToDo';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
 
@@ -43,7 +44,12 @@ const TodosContainer = props => {
 		);
 	}
 
-	return <div className='todos__container'>{todosUserKey.length && <TodosList />}</div>;
+	return (
+		<div className='todos'>
+			<AddToDo />
+			<div className='todos__container'>{todosUserKey.length && <TodosList />}</div>;
+		</div>
+	);
 };
 
 const mapStateToProps = ({ todosReducer, usersReducer }) => ({

@@ -1,0 +1,56 @@
+.addTodo {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	cursor: pointer;
+}
+
+.addTodo__container {
+	position: relative;
+	padding: 5px;
+	background: var(--main-color);
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.addTodo--icon {
+	vertical-align: middle;
+	width: 50px;
+}
+
+.addtodo--text {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 50px;
+	padding-left: 10px;
+	transition: 1s width;
+	border-radius: 40px;
+	background: var(--main-color);
+}
+
+.addtodo--text span {
+	font-size: 0.5rem;
+	font-weight: bold;
+	color: aliceblue;
+	transition: 0.8s font-size;
+}
+
+.addTodo__container:hover {
+	overflow: visible;
+	border-radius: 40px;
+}
+
+.addTodo__container:hover .addtodo--text span {
+	font-size: 2rem;
+}
+
+.addTodo__container:hover .addtodo--text {
+	background: var(--main-color);
+	width: 230px;
+}
