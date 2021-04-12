@@ -5,7 +5,7 @@ import './styles/AddTodo.css';
 
 const AddToDo = props => {
 	return (
-		<div className='addTodo'>
+		<div className='addTodo' onClick={() => props.open(true)}>
 			<div className='addTodo__container'>
 				<img src={todoAddImg} alt='' className='addTodo--icon' />
 				<div className='addtodo--text'>

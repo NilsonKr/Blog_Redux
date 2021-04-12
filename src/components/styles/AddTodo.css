@@ -1,7 +1,8 @@
 .addTodo {
-	position: absolute;
-	top: 15px;
+	position: fixed;
+	top: 85px;
 	right: 15px;
+	width: 60px;
 	cursor: pointer;
 }
 
@@ -19,6 +20,8 @@
 }
 
 .addtodo--text {
+	width: 50px;
+	padding-left: 10px;
 	display: flex;
 	justify-content: start;
 	align-items: center;
@@ -26,19 +29,18 @@
 	z-index: -1;
 	top: 0;
 	bottom: 0;
-	right: 0;
-	width: 50px;
-	padding-left: 10px;
-	transition: 1s width;
-	border-radius: 40px;
+	right: 50%;
+	transform: translate(50%);
+	transition: 1.2s width;
 	background: var(--main-color);
+	border-radius: 50%;
 }
 
 .addtodo--text span {
 	font-size: 0.5rem;
 	font-weight: bold;
 	color: aliceblue;
-	transition: 0.8s font-size;
+	transition: 1s font-size;
 }
 
 .addTodo__container:hover {
@@ -47,10 +49,13 @@
 }
 
 .addTodo__container:hover .addtodo--text span {
-	font-size: 2rem;
+	font-size: 2.1rem;
 }
 
 .addTodo__container:hover .addtodo--text {
-	background: var(--main-color);
+	transform: translate(0);
 	width: 230px;
+	border-radius: 0;
+	border-top-left-radius: 40px;
+	border-bottom-left-radius: 40px;
 }
