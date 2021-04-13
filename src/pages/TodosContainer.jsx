@@ -16,7 +16,7 @@ const { getAll: getAllUsers } = usersActions;
 
 const TodosContainer = props => {
 	//Open newTodo Window
-	const [isNewOpen, setNewOpen] = useState(true);
+	const [isNewOpen, setNewOpen] = useState(false);
 	//Validate if there are todos
 	const todosUserKey = Object.keys(props.todosReducer.todos);
 
@@ -49,7 +49,10 @@ const TodosContainer = props => {
 
 	return (
 		<div className='todos'>
-			<div className='todos__container'>{todosUserKey.length && <TodosList />}</div>;
+			<div className='todos__container'>
+				{todosUserKey.length && <TodosList edit={setNewOpen} />}
+			</div>
+			;
 			<AddToDo open={setNewOpen} />
 			{isNewOpen && <NewToDo close={setNewOpen} />}
 		</div>

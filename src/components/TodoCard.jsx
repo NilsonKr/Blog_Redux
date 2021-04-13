@@ -1,18 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as todosActions from '../actions/todosActions';
+import * as querysActions from '../actions/queryActions';
 
 import editIcon from '../Assets/edit .svg';
 import deleteIcon from '../Assets/delete.svg';
 
 const todoCard = props => {
 	//Get Todos of the user by his id
-	const { userId } = props;
-	const userTodos = props.todos[userId];
+	const {
+		userId,
+		todosReducer: { todos },
+	} = props;
+
+	const userTodos = todos[userId];
 	const userTodosKey = Object.keys(userTodos);
 
 	//return if is not open
-	if (!props.todos[userId].isOpen) return null;
+	if (!todos[userId].isOpen) return null;
+
+	//Edit Todo
+	const editTodo = description => {
+		props.setUserQuery(userId);
+		props.setDescriptionQuery(description);
+		//open edit window
+		props.edit(true);
+	};
 
 	return (
 		<div className='todo__list'>
@@ -33,7 +46,12 @@ const todoCard = props => {
 								<em>{userTodos[todoKey].title}</em>
 							</div>
 							<div className='todo__buttons'>
-								<img src={editIcon} alt='edit' className='todo--button' />
+								<img
+									src={editIcon}
+									alt='edit'
+									className='todo--button'
+									onClick={() => editTodo(userTodos[todoKey].title)}
+								/>
 								<img src={deleteIcon} alt='delete' className='todo--button' />
 							</div>
 						</div>
@@ -44,6 +62,14 @@ const todoCard = props => {
 	);
 };
 
-const mapStateToProps = reducers => reducers.todosReducer;
+const mapStateToProps = ({ todosReducer, querysReducer }) => ({
+	todosReducer,
+	querysReducer,
+});
 
-export default connect(mapStateToProps, todosActions)(todoCard);
+const mapDispatchToProps = {
+	...querysActions,
+	...todosActions,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(todoCard);

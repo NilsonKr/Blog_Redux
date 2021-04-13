@@ -67,8 +67,6 @@ export const setCompleted = (userId, taskId) => (dispatch, getState) => {
 	newTodos[userId] = { ...newTodos[userId] };
 	newTodos[userId][taskId] = { ...todoPicked, completed: !todoPicked.completed };
 
-	console.log(newTodos);
-
 	dispatch({
 		type: TODOS_FETCH,
 		payload: newTodos,
