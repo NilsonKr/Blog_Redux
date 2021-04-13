@@ -19,11 +19,21 @@ const todoCard = props => {
 	//return if is not open
 	if (!todos[userId].isOpen) return null;
 
-	//Edit Todo
+	//Open Edit Todo
 	const editTodo = ({ title, completed, id }) => {
 		props.setExists(userId, title, completed, id);
 
 		props.openEdit(true);
+	};
+
+	//Render Delete
+	const renderDelete = ev => {
+		const deleteBadge = document.querySelector('#menuDelete');
+
+		deleteBadge.classList.add('deleteMenu--active');
+
+		deleteBadge.style.top = ev.pageY + 'px';
+		deleteBadge.style.left = ev.pageX + 'px';
 	};
 
 	return (
@@ -51,7 +61,12 @@ const todoCard = props => {
 									className='todo--button'
 									onClick={() => editTodo(userTodos[todoKey])}
 								/>
-								<img src={deleteIcon} alt='delete' className='todo--button' />
+								<img
+									src={deleteIcon}
+									alt='delete'
+									className='todo--button deleteTodo'
+									onClick={renderDelete}
+								/>
 							</div>
 						</div>
 					)}

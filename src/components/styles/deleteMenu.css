@@ -1,0 +1,42 @@
+.deleteMenu {
+	position: absolute;
+	z-index: 10;
+	transform-origin: top left;
+	transform: translate(0) scale(0);
+	width: 200px;
+	padding: 10px 5px;
+	text-align: center;
+	border-radius: 20px;
+	border-bottom-right-radius: 0;
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.151);
+	background: var(--bg-color);
+}
+.delteMenu--options {
+	width: 100%;
+	margin-top: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.deleteMenu--delete {
+	color: var(--main-color);
+	font-size: 2rem;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+.deleteMenu--cancel {
+	border: none;
+	padding: 5px;
+	font-size: 1.4rem;
+	background: #00d352;
+	border-radius: 10px;
+	color: white;
+	cursor: pointer;
+}
+
+.deleteMenu--active {
+	transition: 1s transform;
+	transform: translate(-100%, -100%) scale(1);
+}

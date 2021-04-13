@@ -20,3 +20,14 @@ ReactDOM.render(
 	</React.StrictMode>,
 	document.getElementById('root')
 );
+
+//Hide Modals
+
+document.body.addEventListener('click', ev => {
+	const deleteModal = document.querySelector('#menuDelete');
+	const target = ev.target;
+
+	if (deleteModal && !target.classList.contains('deleteTodo')) {
+		deleteModal.classList.remove('deleteMenu--active');
+	}
+});
