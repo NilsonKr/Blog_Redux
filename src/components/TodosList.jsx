@@ -17,7 +17,7 @@ const todosList = props => {
 						<h2 className='todo--user'>{user.username}</h2>
 						<img className='todo--icon' src={checkListImg} alt='Check List' />
 					</div>
-					<TodoCard userId={user.id} edit={props.edit} />
+					<TodoCard userId={user.id} openEdit={props.openEdit} />
 				</div>
 			))}
 		</div>

@@ -50,7 +50,7 @@ const TodosContainer = props => {
 	return (
 		<div className='todos'>
 			<div className='todos__container'>
-				{todosUserKey.length && <TodosList edit={setNewOpen} />}
+				{todosUserKey.length && <TodosList openEdit={setNewOpen} />}
 			</div>
 			;
 			<AddToDo open={setNewOpen} />

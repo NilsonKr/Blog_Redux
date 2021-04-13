@@ -5,8 +5,6 @@ import * as querysActions from '../actions/queryActions';
 import './styles/NewTodo.css';
 
 const NewToDo = props => {
-	console.log(props);
-
 	//Close panel and clean inputs
 	const closeAndClean = () => {
 		props.close(false);
@@ -24,13 +22,38 @@ const NewToDo = props => {
 		}
 	};
 
+	//Send Todo
+	const saveTodo = ev => {
+		ev.preventDefault();
+
+		if (props.exists) {
+			const newTodo = {
+				id: props.todoID,
+				userId: props.userID,
+				title: props.description,
+				completed: props.isCompleted,
+			};
+
+			props.putTodo(newTodo);
+		} else {
+			const newTodo = {
+				userId: props.userID,
+				title: props.description,
+				completed: false,
+			};
+
+			props.postTodo(newTodo);
+		}
+		closeAndClean();
+	};
+
 	return (
 		<div className='addWindow'>
 			<i
 				className='fas fa-times-circle addWindow--close'
 				onClick={() => closeAndClean()}
 			></i>
-			<form action='' className='addWindow__container'>
+			<form action='' className='addWindow__container' onSubmit={saveTodo}>
 				<h2>Set New To Do</h2>
 				<input
 					type='number'

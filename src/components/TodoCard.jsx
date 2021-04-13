@@ -20,11 +20,10 @@ const todoCard = props => {
 	if (!todos[userId].isOpen) return null;
 
 	//Edit Todo
-	const editTodo = description => {
-		props.setUserQuery(userId);
-		props.setDescriptionQuery(description);
-		//open edit window
-		props.edit(true);
+	const editTodo = ({ title, completed, id }) => {
+		props.setExists(userId, title, completed, id);
+
+		props.openEdit(true);
 	};
 
 	return (
@@ -50,7 +49,7 @@ const todoCard = props => {
 									src={editIcon}
 									alt='edit'
 									className='todo--button'
-									onClick={() => editTodo(userTodos[todoKey].title)}
+									onClick={() => editTodo(userTodos[todoKey])}
 								/>
 								<img src={deleteIcon} alt='delete' className='todo--button' />
 							</div>

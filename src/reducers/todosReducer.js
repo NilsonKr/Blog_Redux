@@ -1,4 +1,9 @@
-import { TODOS_FETCH, TODOS_ERROR, TODOS_LOADING } from '../types/todosTypes';
+import {
+	TODOS_FETCH,
+	TODOS_ERROR,
+	TODOS_LOADING,
+	TODOS_UPDATE,
+} from '../types/todosTypes';
 
 const INITIAL_STATE = {
 	todos: {},
@@ -17,6 +22,8 @@ export default (state = INITIAL_STATE, action) => {
 		case TODOS_ERROR:
 			return { ...state, loading: false, error: action.payload };
 			break;
+		case TODOS_UPDATE:
+			return { ...state, loading: false };
 		default:
 			return state;
 			break;
