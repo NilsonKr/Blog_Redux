@@ -1,7 +1,12 @@
 import axios from 'axios';
-import { TODOS_FETCH, TODOS_ERROR, TODOS_LOADING } from '../types/todosTypes';
+import {
+	TODOS_FETCH,
+	TODOS_ERROR,
+	TODOS_LOADING,
+	TODOS_UPDATE,
+} from '../types/todosTypes';
 
-const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
+const apiUrl = 'https://jsonplaceholder.typicode.com/todos/';
 
 export const getAll = () => async dispatch => {
 	dispatch({
@@ -71,4 +76,26 @@ export const setCompleted = (userId, taskId) => (dispatch, getState) => {
 		type: TODOS_FETCH,
 		payload: newTodos,
 	});
+};
+
+//Delete Todo
+export const removeTodo = id => async dispatch => {
+	dispatch({
+		type: TODOS_LOADING,
+	});
+
+	try {
+		const response = await axios.delete(apiUrl + id);
+
+		console.log(response);
+
+		dispatch({
+			type: TODOS_UPDATE,
+		});
+	} catch (error) {
+		dispatch({
+			type: TODOS_ERROR,
+			payload: error.message,
+		});
+	}
 };

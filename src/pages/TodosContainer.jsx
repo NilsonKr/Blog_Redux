@@ -8,7 +8,6 @@ import AddToDo from '../components/AddToDo';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
 import NewToDo from '../components/NewToDo';
-import DeletePortal from '../components/DeletePortal';
 
 import './styles/todos.css';
 
@@ -50,7 +49,6 @@ const TodosContainer = props => {
 
 	return (
 		<div className='todos'>
-			<DeletePortal />
 			<div className='todos__container'>
 				{todosUserKey.length && <TodosList openEdit={setNewOpen} />}
 			</div>

@@ -6,6 +6,7 @@ import {
 } from '../types/todosTypes';
 
 const INITIAL_STATE = {
+	deleteTodoId: '',
 	todos: {},
 	loading: false,
 	error: null,
@@ -23,7 +24,7 @@ export default (state = INITIAL_STATE, action) => {
 			return { ...state, loading: false, error: action.payload };
 			break;
 		case TODOS_UPDATE:
-			return { ...state, loading: false };
+			return { ...state, loading: false, deleteTodoId: '' };
 		default:
 			return state;
 			break;
