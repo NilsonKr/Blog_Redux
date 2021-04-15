@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import postDirectImg from '../Assets/goPost.svg';
 import './styles/PostList.css';
+import { StyledPostCard } from '../styledComponents/StyledPosts';
 
 const PostsList = props => {
 	const { posts } = props;
@@ -11,7 +12,7 @@ const PostsList = props => {
 	return (
 		<div className='postsList__container'>
 			{posts.map(post => (
-				<div className='post__container' key={post.id}>
+				<StyledPostCard key={post.id}>
 					<h1 className='post--title'>{post.title}</h1>
 					<p className='post--body'>
 						{post.body.slice(0, 55)} <span>...</span>
@@ -19,7 +20,7 @@ const PostsList = props => {
 					<Link to={`/post/${props.pickedUser.username}/${post.id}`}>
 						<img className='post--redirect' src={postDirectImg} alt='Go To the post' />
 					</Link>
-				</div>
+				</StyledPostCard>
 			))}
 		</div>
 	);

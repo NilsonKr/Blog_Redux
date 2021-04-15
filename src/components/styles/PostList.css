@@ -7,30 +7,6 @@
 	gap: 10px;
 }
 
-.post__container {
-	position: relative;
-	overflow: hidden;
-	width: 90%;
-	height: 90%;
-	padding: 10px;
-	background-color: white;
-	box-shadow: 0 0 6px rgba(0, 0, 0, 0.274);
-	border-radius: 15px;
-}
-
-.post--title {
-	font-size: 1.5rem;
-}
-.post--body {
-	margin-top: 5px;
-	font-size: 1.2rem;
-}
-
-.post--body span {
-	font-weight: bold;
-	color: var(--main-color);
-}
-
 .post--redirect {
 	position: absolute;
 	bottom: 10px;

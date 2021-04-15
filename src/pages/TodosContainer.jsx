@@ -10,6 +10,8 @@ import Error from '../components/Error';
 import NewToDo from '../components/NewToDo';
 
 import './styles/todos.css';
+import { StyledTodos } from '../styledComponents/StyledTodos';
+import { StyledMain } from '../styledComponents/StyledLayout';
 
 const { getAll: getAllTodos } = todosActions;
 const { getAll: getAllUsers } = usersActions;
@@ -33,29 +35,29 @@ const TodosContainer = props => {
 	//Asynchronus Stage
 	if (props.todosReducer.loading || props.usersReducer.loading) {
 		return (
-			<div className='mainContainer'>
+			<StyledMain>
 				<Loader />
-			</div>
+			</StyledMain>
 		);
 	}
 
 	if (props.todosReducer.error || props.usersReducer.error) {
 		return (
-			<div className='mainContainer'>
+			<StyledMain>
 				<Error message={props.todosReducer.error || props.usersReducer.error} />
-			</div>
+			</StyledMain>
 		);
 	}
 
 	return (
-		<div className='todos'>
+		<StyledTodos>
 			<div className='todos__container'>
 				{todosUserKey.length && <TodosList openEdit={setNewOpen} />}
 			</div>
 			;
 			<AddToDo open={setNewOpen} />
 			{isNewOpen && <NewToDo close={setNewOpen} />}
-		</div>
+		</StyledTodos>
 	);
 };
 

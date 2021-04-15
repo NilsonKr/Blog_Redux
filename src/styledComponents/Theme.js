@@ -7,12 +7,24 @@ const themes = {
 		main: 'mediumvioletred',
 		font: '#000',
 		header: 'mediumvioletred',
+		post: {
+			postCard: 'white',
+			shadow: '0 0 6px rgba(0, 0, 0, 0.274)',
+		},
 	},
 	dark: {
 		bg: '#2b2b2b',
 		main: 'mediumvioletred',
-		font: '#fff',
+		font: '#e4e4e4',
 		header: '#151515',
+		post: {
+			card: '#131313',
+			shadow: '0 0 10px rgba(0, 0, 0, 1)',
+		},
+		todo: {
+			input: 'black',
+			hover: '#151515',
+		},
 	},
 };
 

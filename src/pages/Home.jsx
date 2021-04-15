@@ -6,6 +6,7 @@ import Loader from '../components/Loader';
 import Error from '../components/Error';
 import Users from '../components/Users';
 
+import { StyledMain } from '../styledComponents/StyledLayout';
 import './styles/home.css';
 
 const Home = props => {
@@ -33,7 +34,7 @@ const Home = props => {
 		);
 	}
 
-	return <div className='mainContainer'>{props.users.length && <Users />}</div>;
+	return <StyledMain>{props.users.length && <Users />}</StyledMain>;
 };
 
 const mapStateToProps = reducers => reducers.usersReducer;

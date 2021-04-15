@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as querysActions from '../actions/queryActions';
 
 import './styles/NewTodo.css';
+import { StyledNewTodo } from '../styledComponents/StyledTodos';
 
 const NewToDo = props => {
 	//Close panel and clean inputs
@@ -48,7 +49,7 @@ const NewToDo = props => {
 	};
 
 	return (
-		<div className='addWindow'>
+		<StyledNewTodo>
 			<i
 				className='fas fa-times-circle addWindow--close'
 				onClick={() => closeAndClean()}
@@ -73,7 +74,7 @@ const NewToDo = props => {
 				/>
 				<button className='addWindow--button'>Save</button>
 			</form>
-		</div>
+		</StyledNewTodo>
 	);
 };
 

@@ -8,6 +8,8 @@ import PostBody from '../components/PostBody';
 import PostComments from '../components/PostComments';
 
 import './styles/post.css';
+import { StyledMain } from '../styledComponents/StyledLayout';
+import { StyledPost } from '../styledComponents/StyledPosts';
 
 const PostContainer = props => {
 	const {
@@ -23,22 +25,22 @@ const PostContainer = props => {
 	//Asynchronus Stage
 	if (props.error) {
 		return (
-			<div className='mainContainer'>
+			<StyledMain>
 				<Error message={props.error} />
-			</div>
+			</StyledMain>
 		);
 	}
 
 	if (props.loading || props.posts.length === 0) {
 		return (
-			<div className='mainContainer'>
+			<StyledMain>
 				<Loader />
-			</div>
+			</StyledMain>
 		);
 	}
 
 	return (
-		<div className='postPage__container'>
+		<StyledPost>
 			<div className='post--userTitle__container'>
 				<div className='post--userTitle'>
 					<h2>
@@ -52,7 +54,7 @@ const PostContainer = props => {
 					<PostComments />
 				</React.Fragment>
 			)}
-		</div>
+		</StyledPost>
 	);
 };
 

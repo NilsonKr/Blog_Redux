@@ -1,42 +1,12 @@
-.postPage__container {
-	width: 100%;
-	padding: 50px 10px 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-flow: column;
-}
 .post--userTitle__container {
 	width: 90%;
 	position: relative;
-}
-.post--userTitle {
-	position: relative;
-	z-index: 1;
-	width: fit-content;
-	margin: 0 auto;
-	background-color: var(--bg-color);
 }
 
 .post--userTitle h2 {
 	padding: 0 10px;
 	font-family: var(--title-font);
 	font-size: 2.5rem;
-}
-
-.post--userTitle span {
-	color: var(--main-color);
-}
-
-.post--userTitle__container::after {
-	content: '';
-	position: absolute;
-	top: 50%;
-	right: 0;
-	left: 0;
-	height: 3px;
-	background-color: black;
-	transform: translateY(-50%);
 }
 
 .post__body {
@@ -70,13 +40,6 @@
 	width: 50px;
 	height: 50px;
 	background: url('../../Assets/chat.svg') center / cover no-repeat;
-}
-.comment__container {
-	width: 90%;
-	margin: 10px auto;
-	padding: 5px;
-	box-shadow: 0 0 6px rgba(0, 0, 0, 0.192);
-	border-radius: 20px;
 }
 
 .comment__container h3 {
