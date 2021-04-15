@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Theme from '../styledComponents/Theme';
 import SwitchMode from './SwitchMode';
+
+import { StyledHeader } from '../styledComponents/StyledLayout';
 
 const Layout = props => {
 	return (
-		<React.Fragment>
-			<header className='header'>
+		<Theme>
+			<StyledHeader>
 				<div className='header__sections'>
 					<Link to='/'>
 						<h2>Home</h2>
@@ -16,9 +19,9 @@ const Layout = props => {
 					</Link>
 				</div>
 				<SwitchMode />
-			</header>
+			</StyledHeader>
 			{props.children}
-		</React.Fragment>
+		</Theme>
 	);
 };
 
