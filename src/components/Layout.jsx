@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Theme from '../styledComponents/Theme';
@@ -7,8 +7,10 @@ import SwitchMode from './SwitchMode';
 import { StyledHeader } from '../styledComponents/StyledLayout';
 
 const Layout = props => {
+	const [theme, setTheme] = useState('light');
+
 	return (
-		<Theme>
+		<Theme theme={theme}>
 			<StyledHeader>
 				<div className='header__sections'>
 					<Link to='/'>
@@ -18,7 +20,7 @@ const Layout = props => {
 						<h2>ToDo's</h2>
 					</Link>
 				</div>
-				<SwitchMode />
+				<SwitchMode updateTheme={setTheme} theme={theme} />
 			</StyledHeader>
 			{props.children}
 		</Theme>

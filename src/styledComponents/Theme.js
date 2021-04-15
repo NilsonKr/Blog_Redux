@@ -33,7 +33,8 @@ const themes = {
 };
 
 const Theme = props => {
-	return <ThemeProvider theme={themes['light']}>{props.children}</ThemeProvider>;
+	console.log(props);
+	return <ThemeProvider theme={themes[props.theme]}>{props.children}</ThemeProvider>;
 };
 
 export default Theme;
