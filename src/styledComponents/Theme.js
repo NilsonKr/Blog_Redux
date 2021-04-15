@@ -11,6 +11,10 @@ const themes = {
 			postCard: 'white',
 			shadow: '0 0 6px rgba(0, 0, 0, 0.274)',
 		},
+		todo: {
+			input: '#eee',
+			hover: '#ccc',
+		},
 	},
 	dark: {
 		bg: '#2b2b2b',
@@ -29,7 +33,7 @@ const themes = {
 };
 
 const Theme = props => {
-	return <ThemeProvider theme={themes['dark']}>{props.children}</ThemeProvider>;
+	return <ThemeProvider theme={themes['light']}>{props.children}</ThemeProvider>;
 };
 
 export default Theme;

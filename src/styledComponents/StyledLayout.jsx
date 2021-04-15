@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const StyledHeader = styled.header`
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
+	flex-wrap: wrap;
 	width: 100%;
 	padding: 10px 20px 10px 20px;
 	background-color: ${p => p.theme.header};
@@ -18,6 +19,12 @@ export const StyledHeader = styled.header`
 
 	a:hover {
 		text-decoration: underline;
+	}
+
+	@media screen and (min-width: 720px) {
+		& {
+			justify-content: space-between;
+		}
 	}
 `;
 

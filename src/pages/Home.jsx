@@ -20,17 +20,17 @@ const Home = props => {
 	//Handling Asynchronus Stage
 	if (props.loading) {
 		return (
-			<div className='mainContainer'>
+			<StyledMain>
 				<Loader />
-			</div>
+			</StyledMain>
 		);
 	}
 
 	if (props.error) {
 		return (
-			<div className='mainContainer'>
+			<StyledMain>
 				<Error message={props.error} />
-			</div>
+			</StyledMain>
 		);
 	}
 

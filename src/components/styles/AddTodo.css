@@ -1,6 +1,6 @@
 .addTodo {
 	position: fixed;
-	top: 85px;
+	top: 120px;
 	right: 15px;
 	width: 60px;
 	cursor: pointer;
@@ -54,8 +54,14 @@
 
 .addTodo__container:hover .addtodo--text {
 	transform: translate(0);
-	width: 230px;
+	width: 215px;
 	border-radius: 0;
 	border-top-left-radius: 40px;
 	border-bottom-left-radius: 40px;
+}
+
+@media screen and (min-width: 720px) {
+	.addTodo {
+		top: 85px;
+	}
 }
