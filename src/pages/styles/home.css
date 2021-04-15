@@ -1,4 +1,5 @@
 .usersTable {
+	margin-top: 50px;
 	width: clamp(700px, 100%, 1150px);
 	overflow-x: scroll;
 }
